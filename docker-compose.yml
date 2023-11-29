@@ -24,6 +24,7 @@ services:
     volumes:
       - ./init-db:/docker-entrypoint-initdb.d
       - ./data-db:/data/db
+      - ./media/images:/media/images
     ports:
       - "27017:27017"
     container_name: mongodb_container
