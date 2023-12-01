@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "djongo",
     "blog",
     'accounts.apps.AccountsConfig',
+    "bootstrap_modal_forms",
+    "widget_tweaks"
     #"rosetta"
 ]
 
