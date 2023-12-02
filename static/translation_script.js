@@ -1,5 +1,5 @@
    function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'ru', includedLanguages: 'en,es,fr,ru', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL }, 'google_translate_element');
+            new google.translate.TranslateElement({ pageLanguage: 'ru', includedLanguages: 'en,es,fr,ru,ja', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL }, 'google_translate_element');
         }
 
         function triggerHtmlEvent(element, eventName) {
@@ -31,6 +31,9 @@
 
                     case "ru":
                         selectIndex = 3;
+                        break;
+                    case "ja": // Добавляем японский язык
+                        selectIndex = 4;
                         break;
 
                 }

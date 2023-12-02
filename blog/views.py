@@ -12,7 +12,7 @@ class AboutPageView(TemplateView):
     template_name = 'about.html'
 
 
-class InputPageView(TemplateView):
+class ImputPageView(TemplateView):
     template_name = 'imput.html'
 
 

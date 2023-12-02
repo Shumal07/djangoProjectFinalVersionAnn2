@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <link rel="stylesheet" href="../static/assets/css/bootstrap.min.css">
     <title>Блог о машинном обучении</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,10 +9,31 @@
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/base.css">
     <script type="text/javascript" src="../static/translation_script.js"></script>
-
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
+{% block scripts %}
+<script src="../static/assets/js/jquery-3.2.1.min.js"></script>
+<script src="../static/assets/js/popper.min.js"></script>
+<script src="../static/assets/js/bootstrap.min.js"></script>
+    <script src="../static/assets/js/jquery.bootstrap.modal.forms.js"></script>
+<script type="text/javascript">
+  $(function () {
+    // Sign up button
+    $("#signup-btn").modalForm({
+        formURL: "{% url 'signup' %}"
+    });
+  });
+</script>
+<script type="text/javascript">
+  $(function () {
+    // Sign up button
+    $("#login-btn").modalForm({
+        formURL: "{% url 'login' %}"
+    });
+  });
+</script>
+{% endblock scripts %}
 <!---https://cssgradient.io/--->
 <div id="google_translate_element"></div>
 <div class="g-image"
@@ -60,6 +82,9 @@
                                 data-lang="fr" data-text="French" onclick=updateLanguage("fr")> Испанский </a></li>
                                 <li><a class="dropdown-item languageOption notSelectedLang" href="javascript:void(0)"
                                 data-lang="ru" data-text="Russian" onclick=updateLanguage("ru")> Французский </a></li>
+                                <li><a class="dropdown-item languageOption notSelectedLang" href="javascript:void(0)"
+                                data-lang="ja" data-text="Japanese" onclick=updateLanguage("ja")> Японский </a></li>
+
                             </ul></li>
                     </ul>
                 </div>
@@ -72,8 +97,23 @@
                     <a href="{% url 'logout' %}" style="font-size: 15px; color: black;">Выйти</a>
                 {% else %}
                     <p style="font-size: 18px;">Вы не вошли в систему.</p>
-                    <a href="{% url 'login' %}" style="font-size: 15px; color: black;">Войти</a>
-                    <a href="{% url 'signup' %}" style="font-size: 15px; color: black;">Регистрация</a>
+
+
+                    <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content"></div>
+                      </div>
+                    </div>
+                    <button id="login-btn" class="btn btn-primary" type="button" name="button">Войти</button>
+
+
+
+                    <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content"></div>
+                      </div>
+                    </div>
+                    <button id="signup-btn" class="btn btn-primary" type="button" name="button">Регистрация</button>
                 {% endif %}
             </div>
         </header>
@@ -85,8 +125,9 @@
                 integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
                 crossorigin="anonymous"></script>
     </div>
-
-
+</div>
+<div id="modal" class="modal fade">
+  <div id="dialog" class="modal-dialog" hx-target="this"></div>
 </div>
 </body>
 </html>
