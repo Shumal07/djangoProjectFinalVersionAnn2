@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     "bootstrap_modal_forms",
     "widget_tweaks"
-    #"rosetta"
 ]
 
 MIDDLEWARE = [
@@ -88,12 +87,7 @@ WSGI_APPLICATION = 'djangoProject5.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'django',
-        "CLIENT": {
-            'username': 'root',
-            'password': 'root',
-            'host': 'mongodb://db:27017'
-        }
+        'NAME': 'django'
     }
 }
 

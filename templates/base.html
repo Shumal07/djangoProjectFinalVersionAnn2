@@ -9,30 +9,31 @@
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/base.css">
     <script type="text/javascript" src="../static/translation_script.js"></script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
 {% block scripts %}
-<script src="../static/assets/js/jquery-3.2.1.min.js"></script>
-<script src="../static/assets/js/popper.min.js"></script>
-<script src="../static/assets/js/bootstrap.min.js"></script>
+    <script src="../static/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="../static/assets/js/popper.min.js"></script>
+    <script src="../static/assets/js/bootstrap.min.js"></script>
     <script src="../static/assets/js/jquery.bootstrap.modal.forms.js"></script>
-<script type="text/javascript">
-  $(function () {
-    // Sign up button
-    $("#signup-btn").modalForm({
-        formURL: "{% url 'signup' %}"
-    });
-  });
-</script>
-<script type="text/javascript">
-  $(function () {
-    // Sign up button
-    $("#login-btn").modalForm({
-        formURL: "{% url 'login' %}"
-    });
-  });
-</script>
+    <script type="text/javascript">
+        $(function () {
+            // Sign up button
+            $("#signup-btn").modalForm({
+                formURL: "{% url 'signup' %}"
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            // Sign up button
+            $("#login-btn").modalForm({
+                formURL: "{% url 'login' %}"
+            });
+        });
+    </script>
 {% endblock scripts %}
 <!---https://cssgradient.io/--->
 <div id="google_translate_element"></div>
@@ -67,7 +68,8 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item" href="/imput">Импутация данных</a></li>
-                            </ul></li>
+                            </ul>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,17 +77,34 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item languageOption selectedLang" href="javascript:void(0)"
-                                data-lang="en" data-text="English"  onclick=updateLanguage("en")> Русский </a></li>
+                                       data-lang="en" data-text="English" onclick=updateLanguage("en")> Русский </a>
+                                </li>
                                 <li><a class="dropdown-item languageOption notSelectedLang" href="javascript:void(0)"
-                                data-lang="es" data-text="Espanol" onclick=updateLanguage("es")> Английский </a></li>
+                                       data-lang="es" data-text="Espanol" onclick=updateLanguage("es")> Английский </a>
+                                </li>
                                 <li><a class="dropdown-item languageOption notSelectedLang" href="javascript:void(0)"
-                                data-lang="fr" data-text="French" onclick=updateLanguage("fr")> Испанский </a></li>
+                                       data-lang="fr" data-text="French" onclick=updateLanguage("fr")> Испанский </a>
+                                </li>
                                 <li><a class="dropdown-item languageOption notSelectedLang" href="javascript:void(0)"
-                                data-lang="ru" data-text="Russian" onclick=updateLanguage("ru")> Французский </a></li>
+                                       data-lang="ru" data-text="Russian" onclick=updateLanguage("ru")> Французский </a>
+                                </li>
                                 <li><a class="dropdown-item languageOption notSelectedLang" href="javascript:void(0)"
-                                data-lang="ja" data-text="Japanese" onclick=updateLanguage("ja")> Японский </a></li>
+                                       data-lang="ja" data-text="Japanese" onclick=updateLanguage("ja")> Японский </a>
+                                </li>
 
-                            </ul></li>
+                            </ul>
+                        </li>
+                        <form class="navbar-form" role="search" method="GET" action="{% url 'search' %}">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Поиск" name="q"
+                                       value="{{ query }}">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-light" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </ul>
                 </div>
             </div>
@@ -100,18 +119,18 @@
 
 
                     <div class="modal fade" tabindex="-1" role="dialog" id="modal">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content"></div>
-                      </div>
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content"></div>
+                        </div>
                     </div>
                     <button id="login-btn" class="btn btn-primary" type="button" name="button">Войти</button>
 
 
 
                     <div class="modal fade" tabindex="-1" role="dialog" id="modal">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content"></div>
-                      </div>
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content"></div>
+                        </div>
                     </div>
                     <button id="signup-btn" class="btn btn-primary" type="button" name="button">Регистрация</button>
                 {% endif %}
@@ -127,7 +146,7 @@
     </div>
 </div>
 <div id="modal" class="modal fade">
-  <div id="dialog" class="modal-dialog" hx-target="this"></div>
+    <div id="dialog" class="modal-dialog" hx-target="this"></div>
 </div>
 </body>
 </html>
